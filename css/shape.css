@@ -1,6 +1,7 @@
 /* Specify size for thread links */
 .threadlink {
-    font-size: 8px;
+    font-size: 13px;
+    color: var(--primary-text-color);
 }
 
 .linkcpy {
@@ -95,8 +96,8 @@
 
 /* Reduce sidebar width */
 .aeN.WR {
-    min-width: 270px!important;
-    max-width: 270px!important;
+    min-width: 230px!important;
+    max-width: 230px!important;
 }
 
 /* Reduce top and bottom padding around date */
