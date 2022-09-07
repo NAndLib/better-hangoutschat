@@ -22,7 +22,9 @@ generateFiles() {
 
    cat js/gmonkeyscript_template.js "$PLUGINWITHCSS" > "$2/gmonkeyscript.js"
 
-   VERSION="$(git tag | tail -n 1 | cut -c2-)"
+   VERSION="$(git describe --tags --abbrev=0)"
+   VERSION="${VERSION}pre$(git rev-list --count --reflog ${VERSION})"
+   VERSION="${VERSION:1}"
    mkdir -p "$2/firefox"
    cat browser_extensions/firefox_manifest.json | sed "s/VERSION/$VERSION/g" | sed "s/COLOR/$3/g" > $2/firefox/manifest.json
    cp css/shape.css $2/firefox/
