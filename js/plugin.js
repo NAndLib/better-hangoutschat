@@ -1,3 +1,12 @@
+function copyURI(evt) {
+    evt.preventDefault();
+    navigator.clipboard.writeText(evt.target.getAttribute('href')).then(() => {
+      alert("Link copied to clipboard");
+    }, () => {
+      alert("Link failed to copy to clipboard");
+    });
+}
+
 function inject(){
 
     var chanIDreg = /.*space\/([_a-zA-Z0-9-]+).*/g;
@@ -57,15 +66,19 @@ function inject(){
         linkFunction(topics[i]);
     }
 
+    var threadlinks = document.getElementsByClassName("threadlink");
+    var i;
+    for(i = 0; i < threadlinks.length; i++) {
+      var p = threadlinks[i];
+      var a = p.getElementsByTagName("a")[0];
+      a.addEventListener("click", copyURI);
+    }
+
 // INSERTCSS
 }
 
 if ( window !== undefined ) {
-    setTimeout(function(){
-        let injected = window.injected;
-        if ( injected === undefined ) {
-            inject();
-            window.injected = true;
-        }
-    }, 3500);
+  setInterval(() => {
+    setTimeout(inject, 3500);
+  }, 5000)
 }

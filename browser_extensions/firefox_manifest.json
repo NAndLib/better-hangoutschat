@@ -9,6 +9,11 @@
         "48": "icons/icon.png"
     },
 
+    "permissions": [
+      "tabs",
+      "clipboard"
+    ],
+
     "content_scripts": [
         {
             "matches": ["*://chat.google.com/*", "*://mail.google.com/chat/*"],
