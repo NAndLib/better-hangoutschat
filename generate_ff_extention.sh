@@ -1,5 +1,5 @@
 #!/bin/bash
-OUT_DIR="./out/ghctheme/firefox"
+OUT_DIR="./out/lighttheme/firefox"
 FF_SECRET="$HOME/.secrets/firefox_addon_JWT"
 
 ./generate_patch.sh
